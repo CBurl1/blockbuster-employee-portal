@@ -1,15 +1,16 @@
 # Standard library imports
 
 # Remote library imports
-from flask import Flask
+from flask import Flask, request, make_response
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_restful import Api
+from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
 
 # Local imports
+from models import db, BlockBuster, Movie, Rental, Renter
 
 # Instantiate app, set attributes
 app = Flask(__name__)
@@ -33,6 +34,10 @@ api = Api(app)
 CORS(app)
 
 # Views go here!
+# class Movies(Resource):
+#     def get(self):
+#         m_list = []
+#         for m in Movie.query.all
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
