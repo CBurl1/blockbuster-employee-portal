@@ -17,6 +17,7 @@ metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy(metadata=metadata)
 
+
 # class BlockBuster(db.Model, SerializerMixin):
 
 

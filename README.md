@@ -42,6 +42,13 @@ $ # the -L argument limits the depth at which we look into the directory structu
 
 ***
 
+BlockBuster -----<Movies ------< Rent >-------Renter 
+
+<!-- gamestop ------<reviews>------ gamers -->
+
+
+
+
 ## Where Do I Start?
 
 Just as with your Phase 3 Project, this will likely be one of the biggest

@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
-  // Code goes here!
+  return(
+    <div>
+      <h1>hi folks</h1>
+    </div>
+  )
 }
 
 export default App;
