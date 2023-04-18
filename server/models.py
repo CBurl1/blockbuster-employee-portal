@@ -12,6 +12,7 @@ class Movie(db.Model, SerializerMixin):
     rating = db.Column(db.String, nullable=False)
     
     rentals = db.relationship('Rental', backref='movies')
+    clients = association_proxy('rentals', client)
 
     @validates('rating')
     def validate_rating(self, key, rating):
@@ -26,7 +27,8 @@ class Rental(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.id'))
     client_id = db.Column(db.Integer, db.ForeignKey('clients.id'))
-
+    checkout_date = db.Column(db.DateTime, server_default = db.func.now())
+    return_date = db.Column(db.DateTime, onupdate = db.func.now())
 class client(db.Model, SerializerMixin):
     __tablename__ = 'clients'
 
@@ -36,8 +38,7 @@ class client(db.Model, SerializerMixin):
     age = db.Column(db.Integer, nullable=False)
 
     rentals = db.relationship('Rental', backref='client')
-    # clients = association_proxy('', 'client')
-
+    movies = association_proxy('rentals', 'movie')
 
 
 # Models go here!
