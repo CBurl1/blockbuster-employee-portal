@@ -1,8 +1,8 @@
-"""Models
+"""tables
 
-Revision ID: 396e67c48209
+Revision ID: 2482f477cc21
 Revises: 
-Create Date: 2023-04-18 09:30:17.524679
+Create Date: 2023-04-18 03:57:41.680441
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '396e67c48209'
+revision = '2482f477cc21'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,6 +36,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('movie_id', sa.Integer(), nullable=True),
     sa.Column('client_id', sa.Integer(), nullable=True),
+    sa.Column('checkout_date', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('return_date', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['client_id'], ['clients.id'], name=op.f('fk_rentals_client_id_clients')),
     sa.ForeignKeyConstraint(['movie_id'], ['movies.id'], name=op.f('fk_rentals_movie_id_movies')),
     sa.PrimaryKeyConstraint('id')
