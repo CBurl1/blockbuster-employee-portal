@@ -9,7 +9,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import BlockBuster, Movie, Rental, Renter
+from models import Movie, Rental, Client
 
 # Views go here!
 
