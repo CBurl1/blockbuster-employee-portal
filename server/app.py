@@ -85,7 +85,25 @@ class Rentals(Resource):
         return make_response(r_list, 200)
     
 api.add_resource(Rentals, '/rentals')
+class GetRentalsById(Resource):
+    def get(self, id):
+        r_instance = Rental.query.filter_by(id=id).first()
+        if r_instance == None:
+            return make_response({'error': 'Rental Not Found'}, 404)
+        return make_response(r_instance.to_dict(), 200)
 
+    def patch(self, id):
+        r = Rental.query.filter_by(id=id).first()
+        if r == None:
+            return make_response({'error': 'Rental Not Found'}, 404)
+        data = request.get_json()
+        for key in data.keys():
+            setattr(r, key, data[key])
+        db.session.add(r)
+        db.session.commit()
+        return make_response(r.to_dict(), 200)
+    
+api.add_resource(GetRentalsById, '/rentals/<int:id>')
 class Clients(Resource):
     def get(self):
         c_list = []
