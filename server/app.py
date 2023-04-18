@@ -84,6 +84,14 @@ class Rentals(Resource):
             r_list.append(r_dict)
         return make_response(r_list, 200)
     
+    def post(self):
+        data = request.get_json()
+        rentals = Rental(movie_id = data['movie_id'],
+                          client_id = data['client_id'])
+        db.session.add(rentals)
+        db.session.commit()
+        return make_response(rentals.to_dict(), 201)
+    
 api.add_resource(Rentals, '/rentals')
 class GetRentalsById(Resource):
     def get(self, id):
