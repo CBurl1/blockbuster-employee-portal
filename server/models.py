@@ -29,6 +29,7 @@ class Rental(db.Model, SerializerMixin):
     client_id = db.Column(db.Integer, db.ForeignKey('clients.id'))
     checkout_date = db.Column(db.DateTime, server_default = db.func.now())
     return_date = db.Column(db.DateTime, onupdate = db.func.now())
+    
 class Client(db.Model, SerializerMixin):
     __tablename__ = 'clients'
 
