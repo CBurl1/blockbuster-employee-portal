@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router} from 'react-router-dom';
+import React from 'react';
+import Main from './Main';
 
 function App() {
   return(
     <div>
-      <h1>hi folks</h1>
+      <Router>
+        <Main />
+      </Router>  
     </div>
   )
 }
