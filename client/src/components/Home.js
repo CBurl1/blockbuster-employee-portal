@@ -8,9 +8,9 @@ function Home() {
                 <img src='https://www.shutterstock.com/image-illustration/typical-theater-style-3d-letters-260nw-656897350.jpg'/>
             </div>
             <nav>
-                <Link to='/movie'>Movies</Link>
-                <Link to='/rental'>Rentals</Link>
-                <Link to='/client'>Clients</Link>
+                <Link to='/movies'>Movies</Link>
+                <Link to='/rentals'>Rentals</Link>
+                <Link to='/clients'>Clients</Link>
             </nav>
         </>
     )
