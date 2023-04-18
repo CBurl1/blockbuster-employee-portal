@@ -12,11 +12,16 @@ from config import app, db, api
 from models import Movie, Rental, Client
 
 # Views go here!
-class Movie(Resource):
+class Home(Resource):
+    pass 
+
+api.add_resource(Home, '/')
+class Movies(Resource):
     def get(self):
         m_list = []
         for m in Movie.query.all():
             m_dict = {
+                'id': m.id,
                 'name': m.name,
                 'cost': m.cost,
                 'rating': m.rating
@@ -24,7 +29,24 @@ class Movie(Resource):
             m_list.append(m_dict)
         return make_response(m_list, 200)
     
-class Client(Resource):
+api.add_resource(Movies, '/movies')
+    
+class Rentals(Resource):
+    def get(self):
+        r_list = []
+        for r in Rental.query.all():
+            r_dict = {
+                'id': r.id,
+                'movie_id': r.movie_id,
+                'client_id': r.client_id,
+                'checkout_date': r.checkout_date,
+                'return_date': r.return_date
+            }
+            r_list.append(r_dict)
+        return make_response(r_list, 200)
+    
+api.add_resource(Rentals, '/rentals')
+class Clients(Resource):
     def get(self):
         c_list = []
         for c in Client.query.all():
@@ -35,6 +57,8 @@ class Client(Resource):
             }
             c_list.append(c_dict)
         return make_response(c_list, 200)
+    
+api.add_resource(Clients, '/clients')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
