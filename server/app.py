@@ -13,9 +13,11 @@ from models import Movie, Rental, Client
 
 # Views go here!
 class Home(Resource):
-    pass 
+    def get(self):
+        return 'spaceballs!'
 
 api.add_resource(Home, '/')
+
 class Movies(Resource):
     def get(self):
         m_list = []
@@ -29,8 +31,45 @@ class Movies(Resource):
             m_list.append(m_dict)
         return make_response(m_list, 200)
     
-api.add_resource(Movies, '/movies')
+    def post(self):
+        data = request.get_json()
+        movie = Movie(name = data['name'],
+                      cost = data['cost'],
+                      rating = data['rating'])
+        db.session.add(movie)
+        db.session.commit()
+        return make_response(movie.to_dict(), 201)
     
+api.add_resource(Movies, '/movies')
+
+class MoviesById( Resource ):
+    def get(self, id):
+        m_instance = Movie.query.filter_by( id = id).first()
+        if m_instance == None:
+            return make_response( {'error': 'movie not found'}, 404)
+        return make_response(m_instance.to_dict(), 200)
+
+    def patch(self, id):
+        m = Movie.query.filter_by( id = id ).first()
+        if m == None:
+            return make_response({'error': 'Movie not found.'}, 404)
+        data = request.get_json()
+        for key in data.keys():
+            setattr(m, key, data[key])
+        db.session.add(m)
+        db.session.commit()
+        return make_response(m.to_dict(), 200)
+    
+    def delete(self, id):
+        m_instance = Movie.query.filter_by(id=id).first()
+        if m_instance == None:
+            return make_response({'error':'movie not found'}, 404)
+        db.session.delete(m_instance)
+        db.session.commit()
+        return make_response( {}, 204 )
+    
+api.add_resource(MoviesById, '/movies/<int:id>')
+
 class Rentals(Resource):
     def get(self):
         r_list = []
@@ -46,6 +85,7 @@ class Rentals(Resource):
         return make_response(r_list, 200)
     
 api.add_resource(Rentals, '/rentals')
+
 class Clients(Resource):
     def get(self):
         c_list = []
