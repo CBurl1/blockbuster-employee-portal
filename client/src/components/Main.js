@@ -11,9 +11,9 @@ function Main() {
         <div>
             <Header />
             <Switch>
-                <Route path= '/clients' component={Client}/>
-                <Route path= '/rentals' component={Rental}/>
-                <Route path= '/movies' component={Movie}/>
+                <Route path= '/client' component={Client}/>
+                <Route path= '/rental' component={Rental}/>
+                <Route path= '/movie' component={Movie}/>
                 <Route path= '/' component={Home}/>
                 <Redirect to= '/' />
             </Switch>

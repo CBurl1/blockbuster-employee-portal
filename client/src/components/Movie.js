@@ -1,6 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-function Movies() {
+function Movie() {
   return (
     <div>
       <div>
@@ -8,11 +9,11 @@ function Movies() {
       </div>
       <nav>
         <Link to='/'>Home</Link>
-        <Link to='/rentals'>Rentals</Link>
-        <Link to='/clients'>Clients</Link>
+        <Link to='/rental'>Rentals</Link>
+        <Link to='/client'>Clients</Link>
       </nav>
     </div>
   )
 }
 
-export default Movies;
+export default Movie;

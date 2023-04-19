@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function Rentals() {
+function Rental() {
   return (
     <div>
       <div>
@@ -9,11 +9,11 @@ function Rentals() {
       </div>
       <nav>
         <Link to='/'>Home</Link>
-        <Link to='/movies'>Movies</Link>
-        <Link to='/clients'>Clients</Link>
+        <Link to='/movie'>Movies</Link>
+        <Link to='/client'>Clients</Link>
       </nav>
     </div>
   )
 }
 
-export default Rentals;
+export default Rental;

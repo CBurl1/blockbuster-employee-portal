@@ -1,6 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-function Clients() {
+function Client() {
   return (
     <div>
       <div>
@@ -8,11 +9,11 @@ function Clients() {
       </div>
       <nav>
         <Link to='/'>Home</Link>
-        <Link to='/movies'>Movies</Link>
-        <Link to='/rentals'>Rentals</Link>
+        <Link to='/movie'>Movies</Link>
+        <Link to='/rental'>Rentals</Link>
       </nav>
     </div>
   )
 }
 
-export default Clients
+export default Client;
