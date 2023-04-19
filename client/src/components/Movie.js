@@ -1,7 +1,17 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {useEffect, useState} from 'react';
 
 function Movie() {
+
+
+  useEffect(() => {
+    fetch("/movies")
+      .then((r) => r.json())
+      .then((movies) => console.log(movies));
+  }, []);
+
+
   return (
     <div>
       <div>
