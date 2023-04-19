@@ -96,7 +96,7 @@ with app.app_context():
     c33 = Client(first_name='Princeton', last_name='Rose', age=33)
     c34 = Client(first_name='Raymond', last_name='An', age=0)
     c35 = Client(first_name='Regan', last_name='Svoboda', age=23)
-    c36 = Client(first_name='Robert', last_name='Hitchcock', age=0)
+    c36 = Client(first_name='Robert', last_name='Hitchcock', age=36)
     c37 = Client(first_name='Sam', last_name='Boahen', age=28)
     c38 = Client(first_name='Sam', last_name='Genevay', age=30)
     c39 = Client(first_name='Seyfican', last_name='Yalcindag', age=29)
