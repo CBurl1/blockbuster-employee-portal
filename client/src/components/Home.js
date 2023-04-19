@@ -4,8 +4,10 @@ import {Link} from 'react-router-dom'
 function Home() {
     return (
         <>
-            <div>
-                <img src='https://www.shutterstock.com/image-illustration/typical-theater-style-3d-letters-260nw-656897350.jpg' alt='blockbuster' />
+            <div className='bg-black'>
+                <h1 className='text-blue-600'>
+                    Hello
+                </h1>
             </div>
             <nav>
                 <Link to='/movie'>Movies</Link>
