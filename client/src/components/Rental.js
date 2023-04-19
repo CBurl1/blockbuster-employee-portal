@@ -16,6 +16,14 @@ function Rental() {
   return (
     <div>
         <h1>Rentals</h1>
+        <table>
+          <tr>
+            <th>Rental ID</th>
+            <th>Movie ID</th>
+            <th>Client Id</th>
+            <th>Edit Rental</th>
+          </tr>
+        </table>
         <RentalList rentals={rentals}/>
         <nav>
           <Link to='/'>Home</Link>

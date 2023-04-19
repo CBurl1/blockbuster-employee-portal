@@ -15,12 +15,12 @@ function RentalData({client_id, movie_id, id}) {
                 </thead>
                 <tbody>
                     <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <td className="px-6 py-4">{id}</td>
-                    <td className="px-6 py-4">{movie_id}</td>
-                    <td className="px-6 py-4">{client_id}</td>
-                    <td className="px-6 py-4">
-                        <a href="edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
+                        <td className="px-6 py-4">{id}</td>
+                        <td className="px-6 py-4">{movie_id}</td>
+                        <td className="px-6 py-4">{client_id}</td>
+                        <td className="px-6 py-4">
+                            <a href="/rental" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
