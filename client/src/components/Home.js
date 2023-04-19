@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import MovieList from './MovieList';
+import ClientList from './ClientList';
 
 function Home() {
+
     return (
         <>
             <div className='bg-black'>

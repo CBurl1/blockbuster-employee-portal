@@ -2,18 +2,17 @@ import RentalData from './RentalData'
 
 
 function RentalList({rentals}) {
-
     
-    const sweetrentals = rentals.map(movie => 
+    const sweetRentals = rentals.map(rental => 
         <RentalData 
-            key={movie.id} 
-            {...movie}
+            key={rental.id} 
+            {...rental}
         />
     )
 
     return(
         <div>
-            {sweetrentals}
+            {sweetRentals}
         </div>
     )
 }

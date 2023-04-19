@@ -15,7 +15,6 @@ function Movie() {
   }, []);
   
 
-
   return (
     <div>
       <div>
