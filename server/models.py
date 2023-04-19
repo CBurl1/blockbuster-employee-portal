@@ -6,6 +6,8 @@ from config import db
 class Movie(db.Model, SerializerMixin):
     __tablename__ = 'movies'
 
+    serialize_rules = ('-rentals',)
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     cost = db.Column(db.Float, nullable=False)
@@ -24,6 +26,8 @@ class Movie(db.Model, SerializerMixin):
 class Rental(db.Model, SerializerMixin):
     __tablename__ = 'rentals'
 
+    serialize_rules = ('-movie_id', '-client_id')
+
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.id'))
     client_id = db.Column(db.Integer, db.ForeignKey('clients.id'))
@@ -32,6 +36,8 @@ class Rental(db.Model, SerializerMixin):
     
 class Client(db.Model, SerializerMixin):
     __tablename__ = 'clients'
+
+    serialize_rules = ('-rentals',)
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
