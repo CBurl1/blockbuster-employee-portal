@@ -5,7 +5,9 @@ function Movie() {
   return (
     <div>
       <div>
-        <h1>Movies</h1>
+        <h1 >
+          Movies
+        </h1>
       </div>
       <nav>
         <Link to='/'>Home</Link>
