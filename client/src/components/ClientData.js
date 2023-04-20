@@ -4,8 +4,8 @@ function ClientData({id, age, first_name, last_name, removeClientFromState}) {
     console.log(id)
 
     const handleDelete = () => {
-        console.log('so ready tp delete')
-        removeClientFromState(age)
+        fetch(`http://127.0.0.1:5555/clients/${id}`, {method: 'DELETE'})
+        removeClientFromState(id)
     }
 
     return(
