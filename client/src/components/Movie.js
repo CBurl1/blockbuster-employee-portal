@@ -2,10 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import MovieList from './MovieList'
+import NewMovie from './NewMovie';
 
 function Movie() {
 
   const [movies, setMovies] = useState([])
+  
+  const addMovieToState = newMovieObj => {
+    setMovies(...movies, newMovieObj)
+  }
 
 
   useEffect(() => {
@@ -19,7 +24,8 @@ function Movie() {
     <div>
       <div>
         <h1>Movies</h1>
-        <MovieList movies = {movies}/>
+        <NewMovie addMovieToState={addMovieToState}/>
+        <MovieList movies={movies}/>
       </div>
       <nav>
         <Link to='/'>Home</Link>
