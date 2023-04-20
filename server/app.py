@@ -117,6 +117,7 @@ class Clients(Resource):
         c_list = []
         for c in Client.query.all():
             c_dict = {
+                'id': c.id,
                 'first_name': c.first_name,
                 'last_name': c.last_name,
                 'age': c.age

@@ -21,7 +21,7 @@ function Client() {
   //We still need to build out the delete fetch for clients.
   const removeClientFromState = goodbyeClient => {
     const filteredArray = clients.filter(goodbyeClientObj => {
-      return goodbyeClientObj.age !== goodbyeClient
+      return goodbyeClientObj.id !== goodbyeClient
     })
     setClients(filteredArray)
   }
