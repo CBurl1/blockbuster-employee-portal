@@ -1,13 +1,19 @@
 import {useState} from 'react'
 
 
-function MovieData({id, cost, name, rating, updateMovie}) {
+function MovieData({id, cost, name, rating, updateMovie, deleteMovieFromState}) {
 
     const [ editCost, setEditCost ] = useState(false)
     const toggleEdit = () => setEditCost( e => !e )  
 
     const [ newCost, setNewCost ] = useState(cost)
     const updateCost = e => setNewCost( e.target.value )
+
+    const handleDelete = () => {
+        fetch(`http://127.0.0.1:5555/movies/${id}`, {method: 'DELETE'})
+        deleteMovieFromState(id)
+    }
+    
 
     const commitToNewCost = e => {
         e.preventDefault()
