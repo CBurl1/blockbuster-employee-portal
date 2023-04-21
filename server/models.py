@@ -13,7 +13,6 @@ class Movie(db.Model, SerializerMixin):
     cost = db.Column(db.Float, nullable=False)
     rating = db.Column(db.String, nullable=False)
     
-    
     rentals = db.relationship('Rental', backref='movie')
     clients = association_proxy('rentals', 'client')
 
