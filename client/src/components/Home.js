@@ -9,11 +9,12 @@ function Home() {
                 <h1 className='text-blue-600'>
                 </h1>
             </div>
-            <nav>
+            <nav className='stupid'>
                 <Link to='/movie'>Movies</Link>
                 <Link to='/rental'>Rentals</Link>
                 <Link to='/client'>Clients</Link>
             </nav>
+            <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomFeatured.jpg" alt="blockbuster"/>
         </>
     )
 }

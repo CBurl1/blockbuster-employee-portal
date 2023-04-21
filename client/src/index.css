@@ -9,7 +9,10 @@
     --text-color: #f0a511;
   }
   
-  
+  .stupid {
+    color: #0b3bab;
+  }
+
   .navbar {
     background-color: var(--secondary-color);
     color: var(--text-color);
@@ -18,11 +21,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    font-family: "ITC Machine Bold", roboto-slab;
   }
   
   .navbar-logo {
     color: var(--text-color);
-    font-size: 32px;
+    font-size: 70px;
     text-decoration: none;
     text-transform: uppercase;
   }
@@ -113,9 +117,9 @@
         background: var(--secondary-color);
       }
       
-      body {
+      /* body {
         background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-      }
+      } */
       
       .relative {
         background-color: #fff;
@@ -170,9 +174,7 @@
         text-decoration: underline;
       }
       
-      th {
-        padding: 0.75rem 1rem;
-      }
+
       
 
   }
