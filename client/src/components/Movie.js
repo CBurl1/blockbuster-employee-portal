@@ -21,6 +21,14 @@ function Movie() {
     } ) )
 
   }
+
+  const removeMovieFromState = goodbyeMovie => {
+    const filteredArray = movies.filter(goodbyeMovieObj => {
+      return goodbyeMovieObj.id !== goodbyeMovie
+    })
+    setMovies(filteredArray)
+  }
+
   useEffect(() => {
     fetch("http://127.0.0.1:5555/movies")
       .then((r) => r.json())
@@ -34,7 +42,11 @@ function Movie() {
       <div>
         <h1>Movies</h1>
         <NewMovie addMovieToState={addMovieToState}/>
-        <MovieList updateMovie= {updateMovie} movies={movies}/>
+        <MovieList 
+        removeMovieFromState= {removeMovieFromState} 
+        updateMovie= {updateMovie} 
+        movies={movies}
+        />
       </div>
       <nav>
         <Link to='/'>Home</Link>

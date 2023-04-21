@@ -1,10 +1,15 @@
 import {useState} from 'react'
 
 
-function MovieData({id, cost, name, rating, updateMovie}) {
+function MovieData({id, cost, name, rating, updateMovie, removeMovieFromState}) {
 
     const [ editCost, setEditCost ] = useState(false)
-    const toggleEdit = () => setEditCost( e => !e )  
+    const toggleEdit = () => setEditCost( e => !e ) 
+    
+    const handleDelete = () => {
+        fetch(`http://127.0.0.1:5555/movies/${id}`, {method: 'DELETE'})
+        removeMovieFromState(id)
+    }
 
     const [ newCost, setNewCost ] = useState(cost)
     const updateCost = e => setNewCost( e.target.value )
@@ -42,7 +47,7 @@ function MovieData({id, cost, name, rating, updateMovie}) {
                         <td className="px-6 py-4">{rating}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
-                            {/* <button onClick={handleDelete} >🗑️</button> */}
+                            <button onClick={handleDelete} >🗑️</button>
                             <button onClick={toggleEdit}>✏️</button>
                             { editCost ? 
                             <form onSubmit={commitToNewCost}>
