@@ -127,7 +127,8 @@ class Clients(Resource):
                 'id': c.id,
                 'first_name': c.first_name,
                 'last_name': c.last_name,
-                'age': c.age
+                'age': c.age,
+                'address': c.address
             }
             c_list.append(c_dict)
         return make_response(c_list, 200)
@@ -136,7 +137,8 @@ class Clients(Resource):
         data = request.get_json()
         client = Client(first_name = data['first_name'],
                         last_name = data['last_name'],
-                        age = data['age'])
+                        age = data['age'],
+                        email_address = data['address'])
         db.session.add(client)
         db.session.commit()
         return make_response(client.to_dict(), 201)
