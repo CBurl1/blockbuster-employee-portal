@@ -44,6 +44,7 @@ class Client(db.Model, SerializerMixin):
     last_name = db.Column(db.String, nullable=False)
     age = db.Column(db.Integer, db.CheckConstraint('age >=16'), nullable=False)
     email_address = db.Column(db.String, nullable=False)
+    telephone_number = db.Column(db.String)
 
     rentals = db.relationship('Rental', backref='client')
     movies = association_proxy('rentals', 'movie')
