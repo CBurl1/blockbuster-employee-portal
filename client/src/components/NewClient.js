@@ -29,7 +29,6 @@ function NewClient({addClient}) {
 
     return (
         <div className='new-client-form'>
-            <h2>New Client</h2>
             <form onSubmit ={handleSubmit}>
                 <input onChange= {fnameChange} type='text' name='fname' placeholder='First name' />
                 <input onChange= {lnameChange} type='text' name='lname' placeholder='Last name' />

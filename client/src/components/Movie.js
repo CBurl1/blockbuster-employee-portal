@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import MovieList from './MovieList'
 import NewMovie from './NewMovie';
@@ -25,6 +24,12 @@ function Movie() {
     })
     setMovies(filteredArray)
   }
+  // const deleteMovieFromState = goodbyeMovie => {
+  //   const filteredArray = movies.filter(goodbyeMovieObj => {
+  //     return goodbyeMovieObj.id !== goodbyeMovie
+  //   })
+  //   setMovies(filteredArray)
+  // }
 
   useEffect(() => {
     fetch("http://127.0.0.1:5555/movies")
@@ -48,19 +53,13 @@ function Movie() {
   return (
     <div>
       <div>
-        <h1>Movies</h1>
         <NewMovie addMovie={addMovie}/>
         <MovieList 
-        removeMovieFromState= {removeMovieFromState} 
+        removeMovieFromState={removeMovieFromState} 
         updateMovie= {updateMovie} 
         movies={movies}
         />
       </div>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/rental'>Rentals</Link>
-        <Link to='/client'>Clients</Link>
-      </nav>
     </div>
   )
 }

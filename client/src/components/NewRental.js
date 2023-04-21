@@ -21,7 +21,6 @@ function NewRental({addRental}) {
 
     return (
         <div className='new-rental-form'>
-            <h2>New Rental</h2>
             <form onSubmit ={handleSubmit}>
 
                 {/* <input onChange= {handleRentalId} type='text' name='name' placeholder='Rental Number' /> */}
