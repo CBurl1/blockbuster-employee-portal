@@ -7,7 +7,6 @@ function Home() {
         <>
             <div className='bg-black'>
                 <h1 className='text-blue-600'>
-                    Hello
                 </h1>
             </div>
             <nav>

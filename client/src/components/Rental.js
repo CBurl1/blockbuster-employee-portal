@@ -27,16 +27,9 @@ function Rental() {
 
   return (
     <div>
-        <div>
           <h1>Rentals</h1>
           <NewRental addRentalToState={addRentalToState}/>
           <RentalList rentals={rentals} deleteRentalFromState={deleteRentalFromState}/>
-        </div>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/movie'>Movies</Link>
-          <Link to='/client'>Clients</Link>
-        </nav>
     </div>
   )
 }

@@ -36,18 +36,11 @@ function Client() {
   
 
   return (
-    <div>
       <div>
         <h1>Clients</h1>
         <NewClient addClientToState = {addClientToState}/>
         <ClientList removeClientFromState= {removeClientFromState} clients = {clients}/>
       </div>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/movie'>Movies</Link>
-        <Link to='/rental'>Rentals</Link>
-      </nav>
-    </div>
   )
 }
 

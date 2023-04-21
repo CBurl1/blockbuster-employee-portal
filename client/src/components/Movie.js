@@ -38,7 +38,6 @@ function Movie() {
   
 
   return (
-    <div>
       <div>
         <h1>Movies</h1>
         <NewMovie addMovieToState={addMovieToState}/>
@@ -48,12 +47,6 @@ function Movie() {
         movies={movies}
         />
       </div>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/rental'>Rentals</Link>
-        <Link to='/client'>Clients</Link>
-      </nav>
-    </div>
   )
 }
 
