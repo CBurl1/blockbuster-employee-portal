@@ -1,6 +1,6 @@
 
 
-function ClientData({id, age, first_name, last_name, removeClientFromState}) {
+function ClientData({id, age, first_name, last_name, email_address, removeClientFromState}) {
     console.log(id)
 
     const handleDelete = () => {
@@ -17,6 +17,7 @@ function ClientData({id, age, first_name, last_name, removeClientFromState}) {
                         <th scope='col' className="px-6 py-3">First Name</th>
                         <th scope='col' className="px-6 py-3">Last Name</th>
                         <th scope='col' className="px-6 py-3">Age</th>
+                        <th scope='col' className="px-6 py-3">Email</th>
                         <th scope='col' className="px-6 py-3">Edit Client</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@ function ClientData({id, age, first_name, last_name, removeClientFromState}) {
                         <td className="px-6 py-4">{first_name}</td>
                         <td className="px-6 py-4">{last_name}</td>
                         <td className="px-6 py-4">{age}</td>
+                        <td className="px-6 py-4">{email_address}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
                             <button onClick={handleDelete} >🗑️</button>

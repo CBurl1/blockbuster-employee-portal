@@ -5,10 +5,12 @@ function NewClient({addClientToState}) {
     const [first_name, setFirstName ] = useState('')
     const [last_name, setLastName] = useState('')
     const [age, setAge] = useState('')
+    const [email_address, setEmailAddress] = useState('')
 
     const handleFirstName = e => setFirstName(e.target.value)
     const handleLastName = e => setLastName(e.target.value)
     const handleAge = e => setAge(e.target.value)
+    const handleEmailAddress = e => setEmailAddress(e.target.value)
     
     const handleSubmit = e => {
         e.preventDefault()
@@ -16,7 +18,8 @@ function NewClient({addClientToState}) {
         const newClient = {
             first_name: first_name,
             last_name: last_name,
-            age: age
+            age: age,
+            email_address: email_address
         }
         
         fetch("http://127.0.0.1:5555/clients", {
@@ -35,6 +38,7 @@ function NewClient({addClientToState}) {
                 <input onChange= {handleFirstName} type='text' name='first_name' placeholder='First name' />
                 <input onChange= {handleLastName} type='text' name='last_name' step='0.01' placeholder='Last name' />
                 <input onChange= {handleAge} type='number' name='age' placeholder='Client Age' />
+                <input onChange= {handleEmailAddress} type='number' name='email_address' placeholder='Client Email' />
                 <button type='submit'>Add Client</button>
             </form>
         </div>
