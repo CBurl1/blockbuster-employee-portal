@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react'
 import RentalList from './RentalList'
 import NewRental from './NewRental'
@@ -35,15 +34,9 @@ function Rental() {
   return (
     <div>
         <div>
-          <h1>Rentals</h1>
           <NewRental addRental={addRental}/>
           <RentalList rentals={rentals} deleteRentalFromState={deleteRentalFromState}/>
         </div>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/movie'>Movies</Link>
-          <Link to='/client'>Clients</Link>
-        </nav>
     </div>
   )
 }
