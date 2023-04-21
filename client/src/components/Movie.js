@@ -12,6 +12,12 @@ function Movie() {
     setMovies(...movies, newMovieObj)
   }
 
+  const deleteMovieFromState = deleteMovie => {
+    const movieArray = movies.filter(deleteMovieObj => {
+      return deleteMovieObj.id !== deleteMovie
+    })
+    setMovies(movieArray)
+  }
 
   useEffect(() => {
     fetch("http://127.0.0.1:5555/movies")
@@ -25,7 +31,7 @@ function Movie() {
       <div>
         <h1>Movies</h1>
         <NewMovie addMovieToState={addMovieToState}/>
-        <MovieList movies={movies}/>
+        <MovieList movies={movies} deleteMovieFromState={deleteMovieFromState}/>
       </div>
       <nav>
         <Link to='/'>Home</Link>
