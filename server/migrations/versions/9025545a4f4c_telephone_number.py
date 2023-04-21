@@ -1,8 +1,8 @@
-"""merge for the fix
+"""telephone number
 
-Revision ID: 0a28adae8176
+Revision ID: 9025545a4f4c
 Revises: 
-Create Date: 2023-04-21 00:59:30.912587
+Create Date: 2023-04-21 01:27:52.542997
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0a28adae8176'
+revision = '9025545a4f4c'
 down_revision = None
 branch_labels = None
 depends_on = None

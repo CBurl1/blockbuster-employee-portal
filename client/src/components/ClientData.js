@@ -1,7 +1,6 @@
 
 
-function ClientData({id, age, first_name, last_name, email_address, removeClientFromState}) {
-    console.log(id)
+function ClientData({id, age, first_name, last_name, email_address, removeClientFromState, telephone_number}) {
 
     const handleDelete = () => {
         fetch(`http://127.0.0.1:5555/clients/${id}`, {method: 'DELETE'})
@@ -18,7 +17,7 @@ function ClientData({id, age, first_name, last_name, email_address, removeClient
                         <th scope='col' className="px-6 py-3">Last Name</th>
                         <th scope='col' className="px-6 py-3">Age</th>
                         <th scope='col' className="px-6 py-3">Email</th>
-                        <th scope='col' className="px-6 py-3">Edit Client</th>
+                        <th scope='col' className="px-6 py-3">Telephone Number</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +27,7 @@ function ClientData({id, age, first_name, last_name, email_address, removeClient
                         <td className="px-6 py-4">{last_name}</td>
                         <td className="px-6 py-4">{age}</td>
                         <td className="px-6 py-4">{email_address}</td>
+                        <td className="px-6 py-4">{telephone_number}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
                             <button onClick={handleDelete} >🗑️</button>

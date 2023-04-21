@@ -128,7 +128,8 @@ class Clients(Resource):
                 'first_name': c.first_name,
                 'last_name': c.last_name,
                 'age': c.age,
-                'email_address': c.email_address
+                'email_address': c.email_address,
+                'telephone_number': c.telephone_number
             }
             c_list.append(c_dict)
         return make_response(c_list, 200)
@@ -138,7 +139,8 @@ class Clients(Resource):
         client = Client(first_name = data['first_name'],
                         last_name = data['last_name'],
                         age = data['age'],
-                        email_address = data['address'])
+                        email_address = data['address'],
+                        telephone_number = data['telephone_number'])
         db.session.add(client)
         db.session.commit()
         return make_response(client.to_dict(), 201)
