@@ -7,6 +7,7 @@ function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
         deleteRentalFromState(id)
     }
 
+function RentalData({client_id, movie_id, id, checkout_date, return_date}) {
     return(
         <div>
             <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
@@ -14,9 +15,9 @@ function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
                 <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                     <tr>
                         <th scope='col' className="px-6 py-3">Rental Number</th>
-                        <th scope='col' className="px-6 py-3">Movies</th>
+                        <th scope='col' className="px-6 py-3">Movie</th>
                         <th scope='col' className="px-6 py-3">Client</th>
-                        <th scope='col' className="px-6 py-3">Edit Rental</th>
+                        <th scope='col' className="px-6 py-3">Checkout date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,7 @@ function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
                         <td className="px-6 py-4">{id}</td>
                         <td className="px-6 py-4">{movie_id}</td>
                         <td className="px-6 py-4">{client_id}</td>
+                        <td className="px-6 py-4">{checkout_date}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             <button onClick={handleDelete} >🗑️</button>
@@ -32,12 +34,8 @@ function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
                 </tbody>
                 </table>
             </div>
-            {/* <p>Checkout time: {checkout_date}</p>
-            <p>Client: {client_id}</p>
-            <p>Movie: {movie_id}</p>
-            <p>Return date: {return_date}</p> */}
         </div>
     )
-}
+}}
 
-export default RentalData
+export default RentalData;
