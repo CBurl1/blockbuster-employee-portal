@@ -42,7 +42,7 @@ function MovieData({id, cost, name, rating, updateMovie}) {
                         <td className="px-6 py-4">{rating}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
-                            <button onClick={handleDelete} >🗑️</button>
+                            {/* <button onClick={handleDelete} >🗑️</button> */}
                             <button onClick={toggleEdit}>✏️</button>
                             { editCost ? 
                             <form onSubmit={commitToNewCost}>
