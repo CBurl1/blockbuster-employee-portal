@@ -8,10 +8,6 @@ function Rental() {
 
   const [rentals, setRentals] = useState([])
 
-  const addRentalToState = newRentalObj => {
-    setRentals(...rentals, newRentalObj)
-  }
-
   const deleteRentalFromState = deleteRental => {
     const rentalArray = rentals.filter(deleteRentalObj => {
       return deleteRentalObj.id !== deleteRental
@@ -25,11 +21,22 @@ function Rental() {
       .then(setRentals);
   }, []);
 
+  const addRental = (rO) => {
+    const rentalArr = [...rentals, rO]
+    fetch('http://localhost:5555/rentals', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(rO)
+    })
+    .then(response => response.json())
+    setRentals(rentalArr)
+  }
+
   return (
     <div>
         <div>
           <h1>Rentals</h1>
-          <NewRental addRentalToState={addRentalToState}/>
+          <NewRental addRental={addRental}/>
           <RentalList rentals={rentals} deleteRentalFromState={deleteRentalFromState}/>
         </div>
         <nav>

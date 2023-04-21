@@ -8,14 +8,6 @@ function Client() {
 
   const [clients, setClients] = useState([])
 
-
-  //Why does it hit an error when I make a post? Why does it say client.map
-  //is not a function? How can we fix it?
-  const addClientToState = newClientObj => {
-    setClients(...clients, newClientObj)
-  }
-
-
   //We need to figure out why the id isn't appearing in the client row. 
   //Without the id we can't delete by the id and if we try to do so it'll delete everything.
   //We still need to build out the delete fetch for clients.
@@ -33,13 +25,24 @@ function Client() {
       .then((r) => r.json())
       .then(setClients);
   }, []);
+
+  const addClient = (cO) => {
+    const clientArr = [...clients, cO]
+    fetch('http://localhost:5555/clients', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(cO)
+    })
+    .then(response => response.json())
+    setClients(clientArr)
+  }
   
 
   return (
     <div>
       <div>
         <h1>Clients</h1>
-        <NewClient addClientToState = {addClientToState}/>
+        <NewClient addClient={addClient}/>
         <ClientList removeClientFromState= {removeClientFromState} clients = {clients}/>
       </div>
       <nav>

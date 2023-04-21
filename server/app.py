@@ -139,7 +139,7 @@ class Clients(Resource):
         client = Client(first_name = data['first_name'],
                         last_name = data['last_name'],
                         age = data['age'],
-                        email_address = data['address'],
+                        email_address = data['email_address'],
                         telephone_number = data['telephone_number'])
         db.session.add(client)
         db.session.commit()

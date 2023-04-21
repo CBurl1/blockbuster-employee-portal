@@ -7,9 +7,6 @@ import NewMovie from './NewMovie';
 function Movie() {
 
   const [movies, setMovies] = useState([])
-  const addMovieToState = newMovieObj => {
-    setMovies(...movies, newMovieObj)
-  }
 
   const updateMovie = freshMovieObj => {
     setMovies( movies.map( mObj => {
@@ -35,13 +32,24 @@ function Movie() {
       .then(setMovies);
   }, []);
 
+  const addMovie = (mO) => {
+    const movieArr = [...movies, mO]
+    fetch('http://localhost:5555/movies', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(mO)
+    })
+    .then(response => response.json())
+    setMovies(movieArr)
+  }
+
   
 
   return (
     <div>
       <div>
         <h1>Movies</h1>
-        <NewMovie addMovieToState={addMovieToState}/>
+        <NewMovie addMovie={addMovie}/>
         <MovieList 
         removeMovieFromState= {removeMovieFromState} 
         updateMovie= {updateMovie} 
