@@ -41,7 +41,6 @@ function MovieData({id, cost, name, rating, updateMovie, deleteMovieFromState}) 
                         <th scope='col' className="px-6 py-3">Title</th>
                         <th scope='col' className="px-6 py-3">Rating</th>
                         <th scope='col' className="px-6 py-3">Cost</th>
-                        <th scope='col' className="px-6 py-3">Edit Client</th>
                     </tr>
                 </thead>
                 <tbody className='table-auto'>
@@ -50,7 +49,6 @@ function MovieData({id, cost, name, rating, updateMovie, deleteMovieFromState}) 
                         <td className="px-6 py-4">{name}</td>
                         <td className="px-6 py-4">{rating}</td>
                         <td className="px-6 py-4">
-                            <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
                             <button onClick={handleDelete} >🗑️</button>
                             <button onClick={toggleEdit}>✏️</button>
                             { editCost ? 

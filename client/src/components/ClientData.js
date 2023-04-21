@@ -29,7 +29,6 @@ function ClientData({id, age, first_name, last_name, email_address, removeClient
                         <td className="px-6 py-4">{email_address}</td>
                         <td className="px-6 py-4">{telephone_number}</td>
                         <td className="px-6 py-4">
-                            <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
                             <button onClick={handleDelete} >🗑️</button>
                         </td>
                     </tr>

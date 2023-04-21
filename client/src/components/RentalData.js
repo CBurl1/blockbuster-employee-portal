@@ -26,7 +26,6 @@ function RentalData({client_id, movie_id, id, deleteRentalFromState, checkout_da
                         <td className="px-6 py-4">{client_id}</td>
                         <td className="px-6 py-4">{checkout_date}</td>
                         <td className="px-6 py-4">
-                            <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             <button onClick={handleDelete} >🗑️</button>
                         </td>
                     </tr>
