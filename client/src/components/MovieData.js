@@ -1,7 +1,12 @@
 
 
 
-function MovieData({id, cost, name, rating}) {
+function MovieData({id, cost, name, rating, deleteMovieFromState}) {
+
+    const handleDelete = () => {
+        fetch(`http://127.0.0.1:5555/movies/${id}`, {method: 'DELETE'})
+        deleteMovieFromState(id)
+    }
 
     return (
         <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
@@ -23,6 +28,7 @@ function MovieData({id, cost, name, rating}) {
                         <td className="px-6 py-4">{rating}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Client</a>
+                            <button onClick={handleDelete} >🗑️</button>
                         </td>
                     </tr>
                 </tbody>

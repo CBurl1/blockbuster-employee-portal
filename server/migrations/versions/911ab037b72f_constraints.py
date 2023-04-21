@@ -1,8 +1,8 @@
-"""seed file work
+"""constraints
 
-Revision ID: a7623f482371
+Revision ID: 911ab037b72f
 Revises: 
-Create Date: 2023-04-20 18:11:46.532428
+Create Date: 2023-04-20 21:51:04.295463
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a7623f482371'
+revision = '911ab037b72f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('first_name', sa.String(), nullable=False),
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
+    sa.CheckConstraint('age >=16'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('movies',

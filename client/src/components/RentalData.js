@@ -1,6 +1,12 @@
 
 
-function RentalData({client_id, movie_id, id}) {
+function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
+    
+    const handleDelete = () => {
+        fetch(`http://127.0.0.1:5555/rentals/${id}`, {method: 'DELETE'})
+        deleteRentalFromState(id)
+    }
+
     return(
         <div>
             <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
@@ -20,6 +26,7 @@ function RentalData({client_id, movie_id, id}) {
                         <td className="px-6 py-4">{client_id}</td>
                         <td className="px-6 py-4">
                             <a href="/rental" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <button onClick={handleDelete} >🗑️</button>
                         </td>
                     </tr>
                 </tbody>
