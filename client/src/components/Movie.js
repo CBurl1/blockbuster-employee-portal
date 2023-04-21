@@ -12,6 +12,16 @@ function Movie() {
     setMovies(...movies, newMovieObj)
   }
 
+  const updateMovie = freshMovieObj => {
+    setMovies( movies.map( mObj => {
+      if(mObj.id !== freshMovieObj.id ) {
+        return mObj
+      } else {
+        return freshMovieObj
+      }
+
+    } ) )
+  }
 
   useEffect(() => {
     fetch("http://127.0.0.1:5555/movies")
@@ -25,7 +35,7 @@ function Movie() {
       <div>
         <h1>Movies</h1>
         <NewMovie addMovieToState={addMovieToState}/>
-        <MovieList movies={movies}/>
+        <MovieList updateMovie= {updateMovie}movies={movies}/>
       </div>
       <nav>
         <Link to='/'>Home</Link>

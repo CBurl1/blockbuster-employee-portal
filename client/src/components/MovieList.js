@@ -1,12 +1,15 @@
 import MovieData from './MovieData'
 
 
-function MovieList({movies}) {
-console.log(movies)
+function MovieList({movies, updateMovie}) {
+
+
+
     const sweetMovies = movies.map(movie => 
         <MovieData 
             key={movie.id} 
             {...movie}
+            updateMovie = {updateMovie}
         />
     )
     
