@@ -100,7 +100,7 @@ with app.app_context():
     c37 = Client(first_name='Sam', last_name='Boahen', age=28)
     c38 = Client(first_name='Sam', last_name='Genevay', age=30)
     c39 = Client(first_name='Seyfican', last_name='Yalcindag', age=29)
-    c40 = Client(first_name='Scott', last_name='Henry', age=13)
+    c40 = Client(first_name='Scott', last_name='Henry', age=40)
     c41 = Client(first_name='Sylvester', last_name='Trevi', age=30)
     c42 = Client(first_name='Taylor', last_name='Ambrose', age=28)
     c43 = Client(first_name='Tim', last_name='Jensen', age=28)

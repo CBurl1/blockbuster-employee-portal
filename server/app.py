@@ -5,6 +5,7 @@
 # Remote library imports
 from flask import request, make_response
 from flask_restful import Resource
+from sqlalchemy.exc import IntegrityError
 
 
 # Local imports
@@ -88,8 +89,14 @@ class Rentals(Resource):
         data = request.get_json()
         rentals = Rental(movie_id = data['movie_id'],
                           client_id = data['client_id'])
-        db.session.add(rentals)
-        db.session.commit()
+        
+        try:
+            db.session.add(rentals)
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            return make_response({'error': 'Must be 16 to sign up'}, 422)
+
         return make_response(rentals.to_dict(), 201)
     
 api.add_resource(Rentals, '/rentals')

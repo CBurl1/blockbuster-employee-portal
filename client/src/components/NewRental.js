@@ -2,11 +2,11 @@ import {useState} from 'react'
 
 function NewRental({addRentalToState}) {
 
-    const [newRentalId, setRentalId] = useState('')
+    // const [newRentalId, setRentalId] = useState('')
     const [newMovieId, setMovieId ] = useState('')
     const [newClientId, setClientId] = useState('')
 
-    const handleRentalId = e => setRentalId(e.target.value)
+    // const handleRentalId = e => setRentalId(e.target.value)
     const handleMovieId = e => setMovieId(e.target.value)
     const handleClientId = e => setClientId(e.target.value)
     
@@ -14,7 +14,7 @@ function NewRental({addRentalToState}) {
         e.preventDefault()
 
         const newRental = {
-            rental_id: newRentalId,
+            // rental_id: newRentalId,
             movie_id: newMovieId,
             client_id: newClientId
         }
@@ -33,8 +33,8 @@ function NewRental({addRentalToState}) {
             <h2>New Rental</h2>
             <form onSubmit ={handleSubmit}>
 
-                <input onChange= {handleRentalId} type='text' name='name' placeholder='Rental Number' />
-                <input onChange= {handleMovieId} type='number' name='cost' step='0.01' placeholder='Movie Id' />
+                {/* <input onChange= {handleRentalId} type='text' name='name' placeholder='Rental Number' /> */}
+                <input onChange= {handleMovieId} type='number' name='cost' step='1' placeholder='Movie Id' />
                 <input onChange= {handleClientId} type='text' name='rating' placeholder='Client Id' />
                 <button type='submit'>Add Rental</button>
             </form>

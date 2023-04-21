@@ -1,10 +1,10 @@
 
 
-function RentalData({client_id, movie_id, id, deleteRentalsFromState}) {
+function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
     
     const handleDelete = () => {
         fetch(`http://127.0.0.1:5555/rentals/${id}`, {method: 'DELETE'})
-        deleteRentalsFromState(id)
+        deleteRentalFromState(id)
     }
 
     return(
