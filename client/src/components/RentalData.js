@@ -1,13 +1,12 @@
 
 
-function RentalData({client_id, movie_id, id, deleteRentalFromState}) {
+function RentalData({client_id, movie_id, id, deleteRentalFromState, checkout_date}) {
     
     const handleDelete = () => {
         fetch(`http://127.0.0.1:5555/rentals/${id}`, {method: 'DELETE'})
         deleteRentalFromState(id)
     }
 
-function RentalData({client_id, movie_id, id, checkout_date, return_date}) {
     return(
         <div>
             <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
@@ -36,6 +35,6 @@ function RentalData({client_id, movie_id, id, checkout_date, return_date}) {
             </div>
         </div>
     )
-}}
+}
 
 export default RentalData;

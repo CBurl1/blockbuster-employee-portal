@@ -1,18 +1,13 @@
 import MovieData from './MovieData'
 
 
-function MovieList({movies, deleteMovieFromState}) {
-
-    console.log(movies)
-function MovieList({movies, updateMovie}) {
-
-
+function MovieList({movies, updateMovie, removeMovieFromState}) {
 
     const sweetMovies = movies.map(movie => 
         <MovieData 
             key={movie.id} 
             {...movie}
-            deleteMovieFromState={deleteMovieFromState}
+            removeMovieFromState={removeMovieFromState}
             updateMovie = {updateMovie}
         />
     )
@@ -22,7 +17,7 @@ function MovieList({movies, updateMovie}) {
             {sweetMovies}
         </div>
     )
-}}
+}
 
 
 export default MovieList

@@ -1,10 +1,13 @@
 import {useState} from 'react'
 
 
+
 function MovieData({id, cost, name, rating, updateMovie, deleteMovieFromState}) {
 
+
     const [ editCost, setEditCost ] = useState(false)
-    const toggleEdit = () => setEditCost( e => !e )  
+    const toggleEdit = () => setEditCost( e => !e ) 
+    
 
     const [ newCost, setNewCost ] = useState(cost)
     const updateCost = e => setNewCost( e.target.value )
