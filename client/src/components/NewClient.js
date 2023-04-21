@@ -1,44 +1,41 @@
 import {useState} from 'react'
 
-function NewClient({addClientToState}) {
+function NewClient({addClient}) {
 
-    const [first_name, setFirstName ] = useState('')
-    const [last_name, setLastName] = useState('')
-    const [age, setAge] = useState('')
-    const [email_address, setEmailAddress] = useState('')
+    const [newFName, setFirstName ] = useState('')
+    const [newLName, setLastName] = useState('')
+    const [newAge, setAge] = useState('')
+    const [newEmail, setEmailAddress] = useState('')
+    const [newNumber, setTelephoneNumber] = useState('')
 
-    const handleFirstName = e => setFirstName(e.target.value)
-    const handleLastName = e => setLastName(e.target.value)
-    const handleAge = e => setAge(e.target.value)
-    const handleEmailAddress = e => setEmailAddress(e.target.value)
+    const fnameChange = e => setFirstName(e.target.value)
+    const lnameChange = e => setLastName(e.target.value)
+    const ageChange = e => setAge(e.target.value)
+    const emailChange = e => setEmailAddress(e.target.value)
+    const numberChange = e => setTelephoneNumber(e.target.value)
+
     
     const handleSubmit = e => {
         e.preventDefault()
-
-        const newClient = {
-            first_name: first_name,
-            last_name: last_name,
-            age: age,
-            email_address: email_address
+         const newClient = { 
+            first_name: newFName,
+            last_name: newLName,
+            age: newAge,
+            email_address: newEmail,
+            telephone_number: newNumber
         }
-        
-        fetch("http://127.0.0.1:5555/clients", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(newClient)
-        })
-        .then(r => r.json())
-        .then(addClientToState)
+        addClient(newClient)
     }
 
     return (
         <div className='new-client-form'>
             <h2>New Client</h2>
             <form onSubmit ={handleSubmit}>
-                <input onChange= {handleFirstName} type='text' name='first_name' placeholder='First name' />
-                <input onChange= {handleLastName} type='text' name='last_name' step='0.01' placeholder='Last name' />
-                <input onChange= {handleAge} type='number' name='age' placeholder='Client Age' />
-                <input onChange= {handleEmailAddress} type='number' name='email_address' placeholder='Client Email' />
+                <input onChange= {fnameChange} type='text' name='fname' placeholder='First name' />
+                <input onChange= {lnameChange} type='text' name='lname' placeholder='Last name' />
+                <input onChange= {ageChange} type='number' name='age' placeholder='Client Age' />
+                <input onChange= {emailChange} type='text' name='email' placeholder='Client Email' />
+                <input onChange= {numberChange} type='text' name='number' placeholder='Client Telephone' />
                 <button type='submit'>Add Client</button>
             </form>
         </div>
