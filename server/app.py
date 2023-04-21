@@ -128,7 +128,7 @@ class Clients(Resource):
                 'first_name': c.first_name,
                 'last_name': c.last_name,
                 'age': c.age,
-                'address': c.address
+                'email_address': c.email_address
             }
             c_list.append(c_dict)
         return make_response(c_list, 200)

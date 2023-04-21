@@ -1,8 +1,8 @@
-"""still wrestling with git
+"""merge for the fix
 
-Revision ID: 9923c604d2d6
+Revision ID: 0a28adae8176
 Revises: 
-Create Date: 2023-04-21 00:49:15.947349
+Create Date: 2023-04-21 00:59:30.912587
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9923c604d2d6'
+revision = '0a28adae8176'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('first_name', sa.String(), nullable=False),
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
+    sa.Column('email_address', sa.String(), nullable=False),
     sa.CheckConstraint('age >=16'),
     sa.PrimaryKeyConstraint('id')
     )
